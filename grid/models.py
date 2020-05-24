@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Editor(models.model):
+class Editor(models.Model):
     editor_name = models.CharField(max_length = 30)
     email = models.EmailField()
 
@@ -13,3 +13,9 @@ class Editor(models.model):
 
     class Meta:
         ordering = ['editor_name']
+
+class Category(models.Model):
+    name = models.CharField(max_length = 30)
+
+    def __str__(self):
+        return self.name 
