@@ -29,16 +29,13 @@ class Location(models.Model):
 class Image(models.Model):
     img_name = models.CharField(max_length= 30)
     img_description = models.TextField()
-    editor = models.ForeignKey(Editor)
-    category = models.ForeignKey(Category)
-    location = models.ForeignKey(Location)
+    editor = models.ForeignKey(Editor, on_delete=models.CASCADE,)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
     photo = models.ImageField(upload_to = 'images/', default = '')
 
-    # def __str__(self): 
-    #     return self.img_name
+    def save_image(self):
+        self.save()
 
-    # def save_image(self):
-    #     self.save()
-
-    # def delete_image(self):
-    #     self.delete() 
+    def delete_image(self):
+        self.delete() 
