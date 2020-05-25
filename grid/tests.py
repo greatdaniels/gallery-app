@@ -82,3 +82,22 @@ class LocationTestClass(TestCase):
         self.new_location.save_location()
         locations = Location.objects.all()
         self.assertTrue(len(locations) > 0)
+
+class categoryTestClass(TestCase):
+    '''
+    A class that tests the category model behaviour
+    '''
+    def setUp(self):
+        '''
+        Creating a new instance
+        '''
+        self.category = Category(name = 'food')
+        self.category.save()
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.category, Category))
+
+
+    def test_save_method(self):
+        categories = Category.objects.all()
+        self.assertTrue(len(categories) > 0)
