@@ -35,7 +35,7 @@ class Image(models.Model):
     img = models.ImageField(upload_to = 'images/', default = '')
 
     def save_image(self):
-        self.save()
+        return self.save()
 
     def delete_image(self):
         self.delete() 
@@ -44,3 +44,17 @@ class Image(models.Model):
     def get_images(cls):
         images = cls.objects.all()
         return images
+
+    @classmethod
+    def get_image_by_id(cls, id):
+        '''
+        A method to get a photo bases on the id
+        '''
+        return cls.objects.filter(id = id).all()
+
+    @classmethod
+    def search_by_category(cls,search):
+        images = Image.objects.filter(category__name__icontains=search)
+        return images
+
+    
