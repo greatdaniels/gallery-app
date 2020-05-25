@@ -19,7 +19,7 @@ class ImageTestClass(TestCase):
         self.james = Editor(editor_name = 'James', email = 'james@gmail.com')
         self.james.save_editor()
 
-        self.new_location = Location(name = 'Nakuru')
+        self.new_location = Location(location_name = 'Nakuru')
         self.new_location.save()
 
         self.new_category = Category(name = 'Business')
@@ -28,13 +28,18 @@ class ImageTestClass(TestCase):
         self.new_image= Image(img_name = 'img1',img_description = 'Testing',editor = self.james, category = self.new_category, location = self.new_location)
         self.new_image.save()
 
-    # def test_instance(self):
-    #     self.assertTrue(isinstance(self.new_image, Image))
+    def test_instance(self):
+        self.assertTrue(isinstance(self.new_image, Image))
 
-    # def test_save_method(self):
-    #     self.new_image.save_photo()
-    #     photos = Image.objects.all()
-    #     self.assertTrue(len(photos) > 0)
+    def test_save_method(self):
+        self.new_image.save_image()
+        photos = Image.objects.all()
+        self.assertTrue(len(photos) > 0)
+
+    def test_get_image_by_id(self):
+        self.new_image.save_image()
+        photo = Image.get_image_by_id(self.new_image.id)
+        self.assertNotEqual(self.new_image, photo)
 
     def tearDown(self):
         Editor.objects.all().delete()
