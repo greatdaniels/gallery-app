@@ -8,7 +8,7 @@
   
     width: 320px;
     height: 180px;
-  }
+}
   
   .overlay {
     transition: .5s ease;
@@ -42,6 +42,15 @@
     text-align: center;
   }
 
+  .form {
+    width: 60%;
+    margin: 0 auto;
+  
+  }
+
+  .header {
+    padding-top: 5%;
+  }
 
 
 
