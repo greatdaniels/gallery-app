@@ -32,7 +32,7 @@ class Image(models.Model):
     editor = models.ForeignKey(Editor, on_delete=models.CASCADE,)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    photo = models.ImageField(upload_to = 'images/', default = '')
+    img = models.ImageField(upload_to = 'images/', default = '')
 
     def save_image(self):
         self.save()
