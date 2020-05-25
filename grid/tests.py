@@ -41,8 +41,44 @@ class ImageTestClass(TestCase):
         photo = Image.get_image_by_id(self.new_image.id)
         self.assertNotEqual(self.new_image, photo)
 
+    def test_search_image_by_category(self):
+        photos = Image.search_by_category("Business")
+        self.assertTrue(len(photos) > 0)
+
     def tearDown(self):
         Editor.objects.all().delete()
         Category.objects.all().delete()
         Location.objects.all().delete()
         Image.objects.all().delete()
+
+class LocationTestClass(TestCase):
+    '''
+    Test case for the Location class and it's behaviours.
+    '''
+
+    # Set up method
+    def setUp(self):
+        '''
+        Method that will run before any test case under this class
+        '''
+        self.new_location = Location(location_name = "Nairobi")
+
+    def tearDown(self):
+        Location.objects.all().delete()
+
+    # Testing instance
+    def test_instance(self):
+        '''
+        Test to confirm that the object is being instantiated correctly.
+        '''
+        self.assertTrue(isinstance(self.new_location, Location))
+
+
+    # Testing save method
+    def test_save_method(self):
+        '''
+        Method to check whether the locations are getting saved.
+        '''
+        self.new_location.save_location()
+        locations = Location.objects.all()
+        self.assertTrue(len(locations) > 0)
