@@ -20,11 +20,23 @@ class Category(models.Model):
     def __str__(self):
         return self.name 
 
+    def save_category(self):
+        '''
+        Method to save the category name
+        '''
+        return self.save()
+
 class Location(models.Model):
     location_name = models.CharField(max_length = 30)
 
     def __str__(self):
         return self.location_name
+
+    def save_location(self):
+        '''
+        A method that saves the location name
+        '''
+        return self.save()
 
 class Image(models.Model):
     img_name = models.CharField(max_length= 30)

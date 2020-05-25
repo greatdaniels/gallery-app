@@ -1,4 +1,12 @@
 .navbar {
     background-color: rgba(0,0,14,1);
 }
+
+.image {
+    object-fit: cover;
+    object-position: 100% 0;
+  
+    width: 320px;
+    height: 180px;
+  }
   
