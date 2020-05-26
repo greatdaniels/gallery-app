@@ -5,7 +5,7 @@
 [Dan_Njoroge](https://github.com/greatdaniels)
 
 # Description
-A personal gallery application that displays my photos for others to view.
+A personal gallery application that displays my photos for others to view. You can visit the live site on `https://gallery-mc27.herokuapp.com/`
 
 ## User Story
 
