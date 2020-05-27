@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import django_heroku
-#new
 import dj_database_url
 from decouple import config,Csv
 
@@ -26,23 +25,23 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 
 #new
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
-DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
-}
+# SECRET_KEY = config('SECRET_KEY')
+# DEBUG = config('DEBUG', default=False, cast=bool)
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=config('DATABASE_URL')
+#     )
+# }
 
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+# ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 
-# SECRET_KEY = '9101(dj5+f98gz^t73#5+2b1esa)9a%skwoc&wmqw1%*xc*1*e'
-# DEBUG = True
-# ALLOWED_HOSTS = ['']
+SECRET_KEY = '9101(dj5+f98gz^t73#5+2b1esa)9a%skwoc&wmqw1%*xc*1*e'
+DEBUG = True
+ALLOWED_HOSTS = []
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
@@ -98,14 +97,14 @@ WSGI_APPLICATION = 'gallery.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'gallery',
-#         'USER': 'dannyboy',
-#         'PASSWORD': 'dannyboy'
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'gallery',
+        'USER': 'dannyboy',
+        'PASSWORD': 'dannyboy'
+    }
+}
 
 
 
